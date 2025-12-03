@@ -5,152 +5,141 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Áo sweater trắng — chủ đề hồng</title>
   <style>
-    :root {
-      --pink: #ffb6c1;      /* pastel pink */
-      --pink-dark: #d64c7f; /* điểm nhấn */
-      --text: #5b2a3f;
-      --white: #ffffff;
-      --shadow: rgba(0,0,0,0.15);
-    }
+  :root {
+    --pink: #ffb6c1;
+    --pink-dark: #d64c7f;
+    --text: #5b2a3f;
+    --white: #ffffff;
+    --shadow: rgba(0,0,0,0.15);
+  }
 
-    /* Reset nhẹ */
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(50% 50% at 20% 20%, #ffd1dc 0%, var(--pink) 60%),
-        linear-gradient(180deg, #ffe4ec 0%, var(--pink) 100%);
-      display: grid;
-      place-items: center;
-    }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    font-size: 14px; /* giảm toàn trang */
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background:
+      radial-gradient(50% 50% at 20% 20%, #ffd1dc 0%, var(--pink) 60%),
+      linear-gradient(180deg, #ffe4ec 0%, var(--pink) 100%);
+    display: grid;
+    place-items: center;
+  }
 
-    .container {
-      width: min(960px, 92vw);
-      padding: 32px 20px 44px;
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 24px;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 20px 40px var(--shadow);
-      text-align: center;
-    }
+  .container {
+    width: min(960px, 92vw);
+    padding: 32px 20px 44px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 24px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 20px 40px var(--shadow);
+    text-align: center;
+  }
 
-    .title {
-      margin: 0 0 16px;
-      font-weight: 700;
-      letter-spacing: 0.4px;
-      color: var(--pink-dark);
-    }
+  .title {
+    margin: 0 0 16px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--pink-dark);
+  }
 
-    .subtitle {
-      margin: 0 0 24px;
-      color: #7a3a55;
-      font-size: 0.98rem;
-    }
+  .subtitle {
+    margin: 0 0 24px;
+    color: #7a3a55;
+    font-size: 0.85rem;
+  }
 
-    .stage {
-      position: relative;
-      display: grid;
-      place-items: center;
-      padding: 18px;
-    }
+  .stage {
+    position: relative;
+    display: grid;
+    place-items: center;
+    padding: 18px;
+  }
 
-    /* Thẻ sản phẩm */
-    .card {
-      position: relative;
-      width: min(520px, 86vw);
-      background: var(--white);
-      border-radius: 28px;
-      box-shadow:
-        0 30px 60px rgba(214, 76, 127, 0.25),
-        inset 0 0 0 1px rgba(214, 76, 127, 0.08);
-      padding: 20px 20px 28px;
-    }
+  .card {
+    position: relative;
+    width: min(520px, 86vw);
+    background: var(--white);
+    border-radius: 28px;
+    box-shadow:
+      0 30px 60px rgba(214, 76, 127, 0.25),
+      inset 0 0 0 1px rgba(214, 76, 127, 0.08);
+    padding: 20px 20px 28px;
+  }
 
-    .sweater-wrap {
-      position: relative;
-      aspect-ratio: 4 / 3;
-      border-radius: 22px;
-      background:
-        radial-gradient(120% 120% at 50% 0%, #fff 0%, #f8f8f8 80%, #eee 100%);
-      overflow: hidden;
-    }
+  .label {
+    margin-top: 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--pink-dark);
+  }
 
-    .sweater {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-      filter:
-        drop-shadow(0 18px 28px rgba(0,0,0,0.18))
-        contrast(1.02) saturate(0.92);
-      transition: transform 220ms ease, filter 220ms ease;
-      cursor: pointer;
-    }
+  /* Giảm kích thước ảnh sweater */
+  .sweater {
+    width: 60%;        /* giảm ảnh */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
 
-    .sweater:hover { transform: translateY(-2px) scale(1.01); }
-    .sweater:active { transform: translateY(0) scale(1); filter: contrast(1.04); }
+  /* Note thư */
+  .note {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--pink-dark);
+    border-radius: 16px;
+    box-shadow: 0 14px 30px var(--shadow);
+    padding: 14px 16px;
+    max-width: min(340px, 86vw);
+    max-height: 200px; /* thêm cuộn */
+    overflow-y: auto;  /* cho phép cuộn */
+    transform-origin: 100% 100%;
+    transform: scale(0.96) translateY(8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 220ms ease, transform 220ms ease;
+  }
+  .note.show {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    pointer-events: auto;
+  }
 
-    .label {
-      margin-top: 14px;
-      font-weight: 600;
-      color: var(--pink-dark);
-    }
+  .note h4 {
+    margin: 0 0 8px;
+    font-size: 0.86rem;
+    line-height: 1.45;
+  }
 
-    /* Tờ thư nổi */
-    .note {
-      position: absolute;
-      right: 1rem;
-      bottom: 1rem;
-      background: rgba(255, 255, 255, 0.95);
-      color: var(--pink-dark);
-      border-radius: 16px;
-      box-shadow: 0 14px 30px var(--shadow);
-      padding: 14px 16px;
-      max-width: min(340px, 86vw);
-      transform-origin: 100% 100%;
-      transform: scale(0.96) translateY(8px);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 220ms ease, transform 220ms ease;
-    }
-    .note.show {
-      opacity: 1;
-      transform: scale(1) translateY(0);
-      pointer-events: auto;
-    }
-    .note h4 {
-      margin: 0 0 8px;
-      font-size: 1rem;
-      letter-spacing: 0.2px;
-    }
-    .note p {
-      margin: 0;
-      line-height: 1.5;
-    }
-    .note .close {
-      position: absolute;
-      top: 8px;
-      right: 10px;
-      border: none;
-      background: transparent;
-      color: var(--text);
-      cursor: pointer;
-      font-size: 20px;
-      line-height: 1;
-      opacity: 0.7;
-    }
-    .note .close:hover { opacity: 1; }
+  .note p {
+    margin: 0;
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
 
-    /* Nút hướng dẫn nhỏ */
-    .hint {
-      margin-top: 12px;
-      font-size: 0.9rem;
-      color: #7a3a55;
-    }
-  </style>
+  .hint {
+    margin-top: 12px;
+    font-size: 0.75rem;
+    color: #7a3a55;
+  }
+
+  .note .close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    border: none;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+    opacity: 0.7;
+  }
+</style>
+
 </head>
 <body>
   <main class="container">
@@ -160,20 +149,19 @@
     <section class="stage">
       <div class="card">
         <div class="sweater-wrap">
-          <!-- Thay src bằng ảnh sweater trắng của bạn để “giống thật” hơn -->
           <img
             class="sweater"
             src="phaiu.png"
             alt="Special Sweater"
             aria-label="Iem ấn zào iiiii"
           />
-          <!-- Tờ thư -->
+
           <div id="love-note" class="note" role="dialog" aria-modal="false" aria-labelledby="note-title">
             <button class="close" aria-label="Đóng">×</button>
-            <h4 id="note-title">gửi em Cún iuu. Hôm nay là ngày 12/3 đóa emmmm, anh công nhận thời tiết mấy hôm nay lạnh đinnn ahehee, nhưng may là trong lòng anh cóa em nên cái lạnh cũm hong thể đánh bại anh đượccc. Anh mún nói với bé mụt điều hết sức bất cẩn của anhhhh là vì một số lý do lèng xèng mò chiếc áo sweater iu dấu hong thể đón ngày 12/3 cùng em Cún gòi. Hôm nay bé dùng tạm chiếc sweater được hơmmm</h4>
-            <p>
-              From Leo
-            </p>
+            <h4 id="note-title">
+              gửi em Cún iuu. Hôm nay là ngày 12/3 đóa emmmm, anh công nhận thời tiết mấy hôm nay lạnh đinnn ahehee, nhưng may là trong lòng anh cóa em nên cái lạnh cũm hong thể đánh bại anh đượccc. Anh mún nói với bé mụt điều hết sức bất cẩn của anhhhh là vì một số lý do lèng xèng mò chiếc áo sweater iu dấu hong thể đón ngày 12/3 cùng em Cún gòi. Hôm nay bé dùng tạm chiếc sweater được hơmmm
+            </h4>
+            <p>From Leo</p>
           </div>
         </div>
         <div class="label">Iem ấn zào iiiii</div>
@@ -183,24 +171,18 @@
   </main>
 
   <script>
-    // Chọn phần tử
     const sweater = document.querySelector('.sweater');
     const note = document.getElementById('love-note');
     const closeBtn = note.querySelector('.close');
 
-    // Toggle thư khi bấm vào áo
     sweater.addEventListener('click', () => {
       note.classList.toggle('show');
     });
 
-    // Đóng thư khi bấm nút ×
     closeBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       note.classList.remove('show');
     });
-
-    // Mẹo: nếu bạn có URL ảnh sweater trắng chất lượng cao, gán vào đây
-    // Ví dụ: sweater.src = 'https://.../white-sweater.jpg';
   </script>
 </body>
 </html>
